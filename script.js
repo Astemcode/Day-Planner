@@ -57,10 +57,11 @@ $(document).ready(function() {
 	$('#hour18 .description').val(localStorage.getItem('hour18'));
 
 	blockTimes();
-    taskLog();
-    
-    $("#clearDay").on("click", function(){
-        localStorage.clear();
-        initPage()
-      }) 
+	taskLog();
+
+	// Clear Data From Log
+	$('#clearDay').on('click', function() {
+		localStorage.clear();
+		taskLog();
+	});
 });
