@@ -1,3 +1,5 @@
+var eightAm = $("#8am");
+
 $(document).ready(function() {    
 	// Time Set
 	var currentDate = moment().format('dddd') + ' ' + moment().format('Do MMM YYYY');
@@ -35,5 +37,27 @@ $(document).ready(function() {
             }
         })
     }
+
+    // Storage Function for saving Task 
+    function taskLog() {
+        var task8 = JSON.parse(localStorage.getItem("8:00am"));
+        eightAm.val(task8);
+    }
+    $(".saveBtn").on("click", function() {
+        console.log(this)
+        var text = $(this).siblings(".description").val();
+        var time = $(this).parent().attr("id");
+
+        //set items in local storage.
+        localStorage.setItem(time, text);
+    })
+
+    $("#hour8 .description").val(localStorage.getItem("hour8"));
+
+
     blockTimes();
-});
+    taskLog();
+
+    })
+  
+
