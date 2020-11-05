@@ -59,9 +59,16 @@ $(document).ready(function() {
 	blockTimes();
 	taskLog();
 
+	
+
 	// Clear Data From Log
-	$('#clearDay').on('click', function() {
+	$('#clearDay').on('click', function(event) {
+		event.preventDefault();
 		localStorage.clear();
 		taskLog();
+
+	// for (var i=0; i<text.length;++){
+	// 	text+=text[i]
+	// }
 	});
 });
